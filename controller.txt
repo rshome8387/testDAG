@@ -1,0 +1,40 @@
+2024-01-10T06:30:48.376Z INFO Ensure step 106 jar file command-runner.jar
+2024-01-10T06:30:48.376Z INFO StepRunner: Created Runner for step 106
+INFO startExec 'hadoop jar /var/lib/aws/emr/step-runner/hadoop-jars/command-runner.jar spark-submit --deploy-mode cluster --class com.quantexa.scriptrunner.QuantexaSparkScriptRunner --conf spark.sql.legacy.parquet.datetimeRebaseModeInRead=LEGACY --conf spark.sql.legacy.parquet.datetimeRebaseModeInWrite=LEGACY --conf spark.shuffle.useOldFetchProtocol=true --conf spark.driver.extraJavaOptions=-Dhdp.version=3.0.1.0-187 -Dscala.color --conf spark.executor.extraJavaOptions=-XX:+UseG1GC -XX:InitiatingHeapOccupancyPercent=35 --conf spark.yarn.maxAppAttempts=1 --conf spark.dynamicAllocation.enabled=false --conf spark.sql.codegen.wholeStage=false --conf spark.serializer=org.apache.spark.serializer.KryoSerializer --conf spark.redaction.regex=(?i)secret|password|encrypt_key --conf spark.yarn.appMasterEnv.HDFS_ROOT=s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/quantexa/scratch/sri/ThroughAirflow --conf spark.executorEnv.HDFS_ROOT=s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/quantexa/scratch/sri/ThroughAirflow --conf spark.yarn.appMasterEnv.BVD_HDFS_ROOT=s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/quantexa/scratch/sri/ThroughAirflow --conf spark.executorEnv.BVD_HDFS_ROOT=s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/quantexa/scratch/sri/ThroughAirflow --conf spark.yarn.appMasterEnv.ICIJ_HDFS_ROOT=s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/quantexa/scratch/sri/ThroughAirflow --conf spark.executorEnv.ICIJ_HDFS_ROOT=s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/quantexa/scratch/sri/ThroughAirflow --jars s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/test-sparkscript/danske-markets-aml-data-generator-shadow-4.6.0-RC-2-projects.jar,s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/test-sparkscript/spark-avro_2.12-3.0.1.jar,s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/test-sparkscript/danske-markets-aml-data-generator-shadow-4.6.0-RC-2-dependency.jar s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/test-sparkscript/danske-markets-aml-data-generator-shadow-4.6.0-RC-2-projects.jar -s com.quantexa.danske.markets.aml.generators.AllDataGenerator -r config -e dev'
+INFO Environment:
+  PATH=/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/opt/aws/puppet/bin/
+  SECURITY_PROPERTIES=/emr/instance-controller/lib/security.properties
+  HISTCONTROL=ignoredups
+  HISTSIZE=1000
+  HADOOP_ROOT_LOGGER=INFO,DRFA
+  JAVA_HOME=/etc/alternatives/jre
+  AWS_DEFAULT_REGION=eu-central-1
+  LANG=en_US.UTF-8
+  MAIL=/var/spool/mail/hadoop
+  LOGNAME=hadoop
+  PWD=/
+  HADOOP_CLIENT_OPTS=-Djava.io.tmpdir=/mnt/var/lib/hadoop/steps/s-004642432GNVXAGO3NJB/tmp
+  _=/etc/alternatives/jre/bin/java
+  LESSOPEN=||/usr/bin/lesspipe.sh %s
+  SHELL=/bin/bash
+  QTINC=/usr/lib64/qt-3.3/include
+  USER=hadoop
+  HADOOP_LOGFILE=syslog
+  HOSTNAME=i-095e9c046b97807e5.eu-central-1.compute.internal
+  QTDIR=/usr/lib64/qt-3.3
+  HADOOP_LOG_DIR=/mnt/var/log/hadoop/steps/s-004642432GNVXAGO3NJB
+  EMR_STEP_ID=s-004642432GNVXAGO3NJB
+  QTLIB=/usr/lib64/qt-3.3/lib
+  HOME=/home/hadoop
+  SHLVL=1
+  HADOOP_IDENT_STRING=hadoop
+INFO redirectOutput to /mnt/var/log/hadoop/steps/s-004642432GNVXAGO3NJB/stdout
+INFO redirectError to /mnt/var/log/hadoop/steps/s-004642432GNVXAGO3NJB/stderr
+INFO Working dir /mnt/var/lib/hadoop/steps/s-004642432GNVXAGO3NJB
+INFO ProcessRunner started child process 28692
+2024-01-10T06:30:48.377Z INFO HadoopJarStepRunner.Runner: startRun() called for s-004642432GNVXAGO3NJB Child Pid: 28692
+INFO Synchronously wait child process to complete : hadoop jar /var/lib/aws/emr/step-runner/hadoop-...
+INFO waitProcessCompletion ended with exit code 1 : hadoop jar /var/lib/aws/emr/step-runner/hadoop-...
+INFO total process run time: 14 seconds
+2024-01-10T06:31:02.455Z INFO Step created jobs: 
+2024-01-10T06:31:02.455Z WARN Step failed with exitCode 1 and took 14 seconds
