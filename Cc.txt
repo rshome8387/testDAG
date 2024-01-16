@@ -1,0 +1,236 @@
+24/01/16 09:08:17 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+24/01/16 09:08:21 WARN DependencyUtils: Skip remote jar s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/test-sparkscript/accuity-etl_2.12-shadow-4.6.0-RC-2-projects.jar.
+24/01/16 09:08:21 WARN DependencyUtils: Skip remote jar s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/test-sparkscript/accuity-etl_2.12-shadow-4.6.0-RC-2-projects.jar.
+24/01/16 09:08:21 INFO RMProxy: Connecting to ResourceManager at ip-10-170-137-72.eu-central-1.compute.internal/10.170.137.72:8032
+24/01/16 09:08:21 INFO Client: Requesting a new application from cluster with 1 NodeManagers
+24/01/16 09:08:22 INFO Configuration: resource-types.xml not found
+24/01/16 09:08:22 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+24/01/16 09:08:22 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (12288 MB per container)
+24/01/16 09:08:22 INFO Client: Will allocate AM container, with 2432 MB memory including 384 MB overhead
+24/01/16 09:08:22 INFO Client: Setting up container launch context for our AM
+24/01/16 09:08:22 INFO Client: Setting up the launch environment for our AM container
+24/01/16 09:08:22 INFO Client: Preparing resources for our AM container
+24/01/16 09:08:22 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+24/01/16 09:08:25 INFO Client: Uploading resource file:/mnt/tmp/spark-da912b60-8294-4f10-9811-5e6beb1650ee/__spark_libs__8419452040116109023.zip -> hdfs://ip-10-170-137-72.eu-central-1.compute.internal:8020/user/hadoop/.sparkStaging/application_1701766556274_0052/__spark_libs__8419452040116109023.zip
+24/01/16 09:08:28 INFO Client: Uploading resource s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/test-sparkscript/accuity-etl_2.12-shadow-4.6.0-RC-2-projects.jar -> hdfs://ip-10-170-137-72.eu-central-1.compute.internal:8020/user/hadoop/.sparkStaging/application_1701766556274_0052/accuity-etl_2.12-shadow-4.6.0-RC-2-projects.jar
+24/01/16 09:08:28 INFO S3NativeFileSystem: Opening 's3://quantexa-emr-logs-bucket-575193579798/emr/scripts/test-sparkscript/accuity-etl_2.12-shadow-4.6.0-RC-2-projects.jar' for reading
+24/01/16 09:08:29 WARN Client: Same path resource s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/test-sparkscript/accuity-etl_2.12-shadow-4.6.0-RC-2-projects.jar added multiple times to distributed cache.
+24/01/16 09:08:29 INFO Client: Uploading resource file:/etc/spark/conf/hive-site.xml -> hdfs://ip-10-170-137-72.eu-central-1.compute.internal:8020/user/hadoop/.sparkStaging/application_1701766556274_0052/hive-site.xml
+24/01/16 09:08:29 INFO Client: Uploading resource file:/mnt/tmp/spark-da912b60-8294-4f10-9811-5e6beb1650ee/__spark_conf__8438655660114747455.zip -> hdfs://ip-10-170-137-72.eu-central-1.compute.internal:8020/user/hadoop/.sparkStaging/application_1701766556274_0052/__spark_conf__.zip
+24/01/16 09:08:29 INFO SecurityManager: Changing view acls to: hadoop
+24/01/16 09:08:29 INFO SecurityManager: Changing modify acls to: hadoop
+24/01/16 09:08:29 INFO SecurityManager: Changing view acls groups to: 
+24/01/16 09:08:29 INFO SecurityManager: Changing modify acls groups to: 
+24/01/16 09:08:29 INFO SecurityManager: SecurityManager: authentication enabled; ui acls disabled; users  with view permissions: Set(hadoop); groups with view permissions: Set(); users  with modify permissions: Set(hadoop); groups with modify permissions: Set()
+24/01/16 09:08:29 INFO Client: Submitting application application_1701766556274_0052 to ResourceManager
+24/01/16 09:08:29 INFO YarnClientImpl: Submitted application application_1701766556274_0052
+24/01/16 09:08:30 INFO Client: Application report for application_1701766556274_0052 (state: ACCEPTED)
+24/01/16 09:08:30 INFO Client: 
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1705396109799
+	 final status: UNDEFINED
+	 tracking URL: http://ip-10-170-137-72.eu-central-1.compute.internal:20888/proxy/application_1701766556274_0052/
+	 user: hadoop
+24/01/16 09:08:31 INFO Client: Application report for application_1701766556274_0052 (state: ACCEPTED)
+24/01/16 09:08:32 INFO Client: Application report for application_1701766556274_0052 (state: ACCEPTED)
+24/01/16 09:08:33 INFO Client: Application report for application_1701766556274_0052 (state: ACCEPTED)
+24/01/16 09:08:34 INFO Client: Application report for application_1701766556274_0052 (state: ACCEPTED)
+24/01/16 09:08:35 INFO Client: Application report for application_1701766556274_0052 (state: ACCEPTED)
+24/01/16 09:08:36 INFO Client: Application report for application_1701766556274_0052 (state: FAILED)
+24/01/16 09:08:36 INFO Client: 
+	 client token: N/A
+	 diagnostics: Application application_1701766556274_0052 failed 1 times (global limit =2; local limit is =1) due to AM Container for appattempt_1701766556274_0052_000001 exited with  exitCode: 1
+Failing this attempt.Diagnostics: [2024-01-16 09:08:36.299]Exception from container-launch.
+Container id: container_1701766556274_0052_01_000001
+Exit code: 1
+
+[2024-01-16 09:08:36.310]Container exited with a non-zero exit code 1. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+Last 4096 bytes of stderr :
+24/01/16 09:08:34 INFO SignalUtils: Registering signal handler for TERM
+24/01/16 09:08:34 INFO SignalUtils: Registering signal handler for HUP
+24/01/16 09:08:34 INFO SignalUtils: Registering signal handler for INT
+24/01/16 09:08:34 INFO SecurityManager: Changing view acls to: yarn,hadoop
+24/01/16 09:08:34 INFO SecurityManager: Changing modify acls to: yarn,hadoop
+24/01/16 09:08:34 INFO SecurityManager: Changing view acls groups to: 
+24/01/16 09:08:34 INFO SecurityManager: Changing modify acls groups to: 
+24/01/16 09:08:34 INFO SecurityManager: SecurityManager: authentication enabled; ui acls disabled; users  with view permissions: Set(yarn, hadoop); groups with view permissions: Set(); users  with modify permissions: Set(yarn, hadoop); groups with modify permissions: Set()
+24/01/16 09:08:35 INFO ApplicationMaster: ApplicationAttemptId: appattempt_1701766556274_0052_000001
+24/01/16 09:08:35 INFO ApplicationMaster: Starting the user application in a separate Thread
+Exception in thread "main" java.lang.NoClassDefFoundError: com/typesafe/config/Config
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2729)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3076)
+	at java.lang.Class.getMethod0(Class.java:3046)
+	at java.lang.Class.getMethod(Class.java:1812)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.startUserApplication(ApplicationMaster.scala:726)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.runDriver(ApplicationMaster.scala:499)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.run(ApplicationMaster.scala:271)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$3.run(ApplicationMaster.scala:902)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$3.run(ApplicationMaster.scala:901)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1730)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$.main(ApplicationMaster.scala:901)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.main(ApplicationMaster.scala)
+Caused by: java.lang.ClassNotFoundException: com.typesafe.config.Config
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:387)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	... 15 more
+24/01/16 09:08:35 INFO ApplicationMaster: Final app status: FAILED, exitCode: 13, (reason: Shutdown hook called before final status was reported.)
+24/01/16 09:08:35 INFO ApplicationMaster: Deleting staging directory hdfs://ip-10-170-137-72.eu-central-1.compute.internal:8020/user/hadoop/.sparkStaging/application_1701766556274_0052
+24/01/16 09:08:35 INFO ShutdownHookManager: Shutdown hook called
+
+
+[2024-01-16 09:08:36.310]Container exited with a non-zero exit code 1. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+Last 4096 bytes of stderr :
+24/01/16 09:08:34 INFO SignalUtils: Registering signal handler for TERM
+24/01/16 09:08:34 INFO SignalUtils: Registering signal handler for HUP
+24/01/16 09:08:34 INFO SignalUtils: Registering signal handler for INT
+24/01/16 09:08:34 INFO SecurityManager: Changing view acls to: yarn,hadoop
+24/01/16 09:08:34 INFO SecurityManager: Changing modify acls to: yarn,hadoop
+24/01/16 09:08:34 INFO SecurityManager: Changing view acls groups to: 
+24/01/16 09:08:34 INFO SecurityManager: Changing modify acls groups to: 
+24/01/16 09:08:34 INFO SecurityManager: SecurityManager: authentication enabled; ui acls disabled; users  with view permissions: Set(yarn, hadoop); groups with view permissions: Set(); users  with modify permissions: Set(yarn, hadoop); groups with modify permissions: Set()
+24/01/16 09:08:35 INFO ApplicationMaster: ApplicationAttemptId: appattempt_1701766556274_0052_000001
+24/01/16 09:08:35 INFO ApplicationMaster: Starting the user application in a separate Thread
+Exception in thread "main" java.lang.NoClassDefFoundError: com/typesafe/config/Config
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2729)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3076)
+	at java.lang.Class.getMethod0(Class.java:3046)
+	at java.lang.Class.getMethod(Class.java:1812)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.startUserApplication(ApplicationMaster.scala:726)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.runDriver(ApplicationMaster.scala:499)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.run(ApplicationMaster.scala:271)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$3.run(ApplicationMaster.scala:902)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$3.run(ApplicationMaster.scala:901)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1730)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$.main(ApplicationMaster.scala:901)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.main(ApplicationMaster.scala)
+Caused by: java.lang.ClassNotFoundException: com.typesafe.config.Config
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:387)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	... 15 more
+24/01/16 09:08:35 INFO ApplicationMaster: Final app status: FAILED, exitCode: 13, (reason: Shutdown hook called before final status was reported.)
+24/01/16 09:08:35 INFO ApplicationMaster: Deleting staging directory hdfs://ip-10-170-137-72.eu-central-1.compute.internal:8020/user/hadoop/.sparkStaging/application_1701766556274_0052
+24/01/16 09:08:35 INFO ShutdownHookManager: Shutdown hook called
+
+
+For more detailed output, check the application tracking page: http://ip-10-170-137-72.eu-central-1.compute.internal:8088/cluster/app/application_1701766556274_0052 Then click on links to logs of each attempt.
+. Failing the application.
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1705396109799
+	 final status: FAILED
+	 tracking URL: http://ip-10-170-137-72.eu-central-1.compute.internal:8088/cluster/app/application_1701766556274_0052
+	 user: hadoop
+24/01/16 09:08:36 ERROR Client: Application diagnostics message: Application application_1701766556274_0052 failed 1 times (global limit =2; local limit is =1) due to AM Container for appattempt_1701766556274_0052_000001 exited with  exitCode: 1
+Failing this attempt.Diagnostics: [2024-01-16 09:08:36.299]Exception from container-launch.
+Container id: container_1701766556274_0052_01_000001
+Exit code: 1
+
+[2024-01-16 09:08:36.310]Container exited with a non-zero exit code 1. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+Last 4096 bytes of stderr :
+24/01/16 09:08:34 INFO SignalUtils: Registering signal handler for TERM
+24/01/16 09:08:34 INFO SignalUtils: Registering signal handler for HUP
+24/01/16 09:08:34 INFO SignalUtils: Registering signal handler for INT
+24/01/16 09:08:34 INFO SecurityManager: Changing view acls to: yarn,hadoop
+24/01/16 09:08:34 INFO SecurityManager: Changing modify acls to: yarn,hadoop
+24/01/16 09:08:34 INFO SecurityManager: Changing view acls groups to: 
+24/01/16 09:08:34 INFO SecurityManager: Changing modify acls groups to: 
+24/01/16 09:08:34 INFO SecurityManager: SecurityManager: authentication enabled; ui acls disabled; users  with view permissions: Set(yarn, hadoop); groups with view permissions: Set(); users  with modify permissions: Set(yarn, hadoop); groups with modify permissions: Set()
+24/01/16 09:08:35 INFO ApplicationMaster: ApplicationAttemptId: appattempt_1701766556274_0052_000001
+24/01/16 09:08:35 INFO ApplicationMaster: Starting the user application in a separate Thread
+Exception in thread "main" java.lang.NoClassDefFoundError: com/typesafe/config/Config
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2729)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3076)
+	at java.lang.Class.getMethod0(Class.java:3046)
+	at java.lang.Class.getMethod(Class.java:1812)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.startUserApplication(ApplicationMaster.scala:726)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.runDriver(ApplicationMaster.scala:499)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.run(ApplicationMaster.scala:271)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$3.run(ApplicationMaster.scala:902)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$3.run(ApplicationMaster.scala:901)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1730)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$.main(ApplicationMaster.scala:901)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.main(ApplicationMaster.scala)
+Caused by: java.lang.ClassNotFoundException: com.typesafe.config.Config
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:387)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	... 15 more
+24/01/16 09:08:35 INFO ApplicationMaster: Final app status: FAILED, exitCode: 13, (reason: Shutdown hook called before final status was reported.)
+24/01/16 09:08:35 INFO ApplicationMaster: Deleting staging directory hdfs://ip-10-170-137-72.eu-central-1.compute.internal:8020/user/hadoop/.sparkStaging/application_1701766556274_0052
+24/01/16 09:08:35 INFO ShutdownHookManager: Shutdown hook called
+
+
+[2024-01-16 09:08:36.310]Container exited with a non-zero exit code 1. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+Last 4096 bytes of stderr :
+24/01/16 09:08:34 INFO SignalUtils: Registering signal handler for TERM
+24/01/16 09:08:34 INFO SignalUtils: Registering signal handler for HUP
+24/01/16 09:08:34 INFO SignalUtils: Registering signal handler for INT
+24/01/16 09:08:34 INFO SecurityManager: Changing view acls to: yarn,hadoop
+24/01/16 09:08:34 INFO SecurityManager: Changing modify acls to: yarn,hadoop
+24/01/16 09:08:34 INFO SecurityManager: Changing view acls groups to: 
+24/01/16 09:08:34 INFO SecurityManager: Changing modify acls groups to: 
+24/01/16 09:08:34 INFO SecurityManager: SecurityManager: authentication enabled; ui acls disabled; users  with view permissions: Set(yarn, hadoop); groups with view permissions: Set(); users  with modify permissions: Set(yarn, hadoop); groups with modify permissions: Set()
+24/01/16 09:08:35 INFO ApplicationMaster: ApplicationAttemptId: appattempt_1701766556274_0052_000001
+24/01/16 09:08:35 INFO ApplicationMaster: Starting the user application in a separate Thread
+Exception in thread "main" java.lang.NoClassDefFoundError: com/typesafe/config/Config
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2729)
+	at java.lang.Class.privateGetMethodRecursive(Class.java:3076)
+	at java.lang.Class.getMethod0(Class.java:3046)
+	at java.lang.Class.getMethod(Class.java:1812)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.startUserApplication(ApplicationMaster.scala:726)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.runDriver(ApplicationMaster.scala:499)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.run(ApplicationMaster.scala:271)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$3.run(ApplicationMaster.scala:902)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$3.run(ApplicationMaster.scala:901)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1730)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$.main(ApplicationMaster.scala:901)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.main(ApplicationMaster.scala)
+Caused by: java.lang.ClassNotFoundException: com.typesafe.config.Config
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:387)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	... 15 more
+24/01/16 09:08:35 INFO ApplicationMaster: Final app status: FAILED, exitCode: 13, (reason: Shutdown hook called before final status was reported.)
+24/01/16 09:08:35 INFO ApplicationMaster: Deleting staging directory hdfs://ip-10-170-137-72.eu-central-1.compute.internal:8020/user/hadoop/.sparkStaging/application_1701766556274_0052
+24/01/16 09:08:35 INFO ShutdownHookManager: Shutdown hook called
+
+
+For more detailed output, check the application tracking page: http://ip-10-170-137-72.eu-central-1.compute.internal:8088/cluster/app/application_1701766556274_0052 Then click on links to logs of each attempt.
+. Failing the application.
+Exception in thread "main" org.apache.spark.SparkException: Application application_1701766556274_0052 finished with failed status
+	at org.apache.spark.deploy.yarn.Client.run(Client.scala:1251)
+	at org.apache.spark.deploy.yarn.YarnClusterApplication.start(Client.scala:1643)
+	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:959)
+	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:180)
+	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:203)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:90)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1038)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1047)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+24/01/16 09:08:36 INFO ShutdownHookManager: Shutdown hook called
+24/01/16 09:08:36 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-5eacd3d9-d68d-4bee-85c1-a40a707ae271
+24/01/16 09:08:36 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-da912b60-8294-4f10-9811-5e6beb1650ee
+Command exiting with ret '1'
