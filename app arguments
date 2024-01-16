@@ -1,0 +1,4 @@
+1_AccuityCreateNewIteration:
+                description: sh ../runQssEtl.sh -s com.quantexa.danske.markets.aml.etl.projects.utils.CreateNewIteration -c ${RUN_ROOT}/Config/external.conf -l qssMetrics -r etl args accuity
+                APPLICATION_ARGS: -s com.quantexa.danske.markets.aml.etl.projects.utils.CreateNewIteration -c external.conf -l qssMetrics -r etl -e ${ENV} args accuity
+                CONFIG_FILES: ${RUN_ROOT}/Config/external.conf
