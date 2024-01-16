@@ -1,0 +1,91 @@
+from airflow import DAG
+from airflow.providers.amazon.aws.operators.emr import EmrAddStepsOperator
+from datetime import datetime,timedelta
+import logging
+
+#Default arguments for the DAG
+default_args={
+  'owner': 'airflow',
+  'depends_on_past':False,
+  'start_date': datetime(2024, 1, 12),
+  'email_on_failure':False,
+  'email_on_retry':False,
+  'retries': 1,
+  'retry_delay': timedelta(minutes=5),
+}
+
+# Creating a DAG for the Spark job on EMR
+dag = DAG('AccuityCreateNewIteration-2', default_args=default_args,schedule_interval=timedelta(days=1))
+
+#Step definition for the SPARK Job
+spark_step = [
+   {
+     'Name': 'Accuity',
+     'ActionOnFailure': 'CONTINUE',
+     'HadoopJarStep': { 
+     'Jar':'command-runner.jar',
+     'Args': [
+        'spark-submit',
+        '--deploy-mode', 'cluster',
+		'--class', 'com.quantexa.scriptrunner.QuantexaSparkScriptRunner',
+        '--conf', 'spark.sql.legacy.parquet.datetimeRebaseModeInRead=LEGACY',
+        '--conf', 'spark.sql.legacy.parquet.datetimeRebaseModeInWrite=LEGACY',
+        '--conf', 'spark.kryoserializer.buffer.max=256m',
+        '--conf', 'spark.default.parallelism=2001',
+        '--conf', 'spark.sql.shuffle.partitions=2001',
+        '--conf', 'spark.shuffle.service.enabled=true',
+        '--conf', 'spark.shuffle.compress=true',
+        '--conf', 'spark.shuffle.spill.compress=true',
+#       '--conf', 'spark.driver.extraClassPath=${CONF_ROOT}/" \
+        '--conf', 'spark.driver.extraJavaOptions=-Dscala.color -Duser.timezone=UTC -Dhdp.version=3.0.1.0-187',
+        '--conf', 'spark.executor.extraJavaOptions=-XX:+UseG1GC -XX:InitiatingHeapOccupancyPercent=35 -XX:ConcGCThreads=4 -Duser.timezone=UTC',
+        '--conf', 'spark.yarn.maxAppAttempts=1',
+        '--conf', 'spark.dynamicAllocation.enabled=false',
+        '--conf', 'spark.sql.codegen.wholeStage=false',
+        '--conf', 'spark.reducer.maxReqsInFlight=32',
+        '--conf', 'spark.shuffle.io.retryWait=60s',
+        '--conf', 'spark.shuffle.io.maxRetries=80000',
+        '--conf', 'spark.shuffle.useOldFetchProtocol=true',
+#       '--conf', 'spark.executor.memoryOverhead=${EXECUTOR_MEMORY_OVERHEAD} \
+        '--conf', 'spark.serializer=org.apache.spark.serializer.KryoSerializer',
+        '--conf', 'spark.redaction.regex=(?i)secret|password|encrypt_key',
+        '--conf', 'spark.rpc.askTimeout=800000s',
+        '--conf', 'spark.network.timeout=1200000s',
+        '--conf', 'spark.yarn.appMasterEnv.DATA_SOURCE=accuity',
+        '--conf', 'spark.executorEnv.DATA_SOURCE=accuity',
+        '--conf', 'spark.yarn.appMasterEnv.HDFS_ROOT=s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/quantexa/scratch/sri/ThroughAirflow/accuity',
+        '--conf', 'spark.executorEnv.HDFS_ROOT=s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/quantexa/scratch/sri/ThroughAirflow/accuity',
+#       '--conf', 'spark.yarn.appMasterEnv.RUN_ROOT=${RUN_ROOT}" \
+#       '--conf', 'spark.executorEnv.RUN_ROOT=${RUN_ROOT}" \
+#       '--conf', 'spark.yarn.appMasterEnv.ENCRYPT_KEY=${ENCRYPT_KEY}" \
+#       '--conf', 'spark.executorEnv.ENCRYPT_KEY=${ENCRYPT_KEY}" \
+#       '--conf', 'spark.yarn.appMasterEnv.runId=${runId}" \
+#       '--conf', 'spark.executorEnv.runId=${runId}" \
+#       '--conf', 'spark.yarn.appMasterEnv.ITERATION=${ITERATION}" \
+#       '--conf', 'spark.executorEnv.ITERATION=${ITERATION}" \
+        '--conf', 'spark.yarn.appMasterEnv.ENV=dev',
+        '--conf', 'spark.executorEnv.ENV=dev',
+#       '--conf', 'spark.yarn.appMasterEnv.environment=${environment}" \
+#       '--conf', 'spark.executorEnv.environment=${environment}" \
+        '--conf', 'spark.sql.session.timeZone=UTC',
+        '--jars', 's3://quantexa-emr-logs-bucket-575193579798/emr/scripts/test-sparkscript/accuity-etl_2.12-shadow-4.6.0-RC-2-projects.jar, s3://quantexa-emr-logs-bucket-575193579798/emr/scripts/test-sparkscript/accuity-etl_2.12-shadow-4.6.0-RC-2-projects.jar',
+        '-s', 'com.quantexa.danske.markets.aml.etl.projects.utils.CreateNewIteration',
+        '-c', 'external.conf',
+        '-l', 'qssMetrics',
+        '-r', 'etl',
+        '-e', 'dev'
+     ]
+    }
+  }
+]
+#Operator to add spark Step to an existing EMR Cluster
+try:
+    add_step= EmrAddStepsOperator(
+    task_id='add_spark_step',
+    job_flow_id='j-YK08BEURY4S2',
+    steps=spark_step,
+    dag=dag
+)
+except Exception as e:
+    logging.error(f"Error in Adding EMR Steps:{e}")
+    # Set the task in the DAG Add_step
